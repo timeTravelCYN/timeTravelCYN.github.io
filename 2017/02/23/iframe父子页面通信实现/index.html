@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的第一篇个人博客 | n 55lW !</title>
+  <title>iframe父子页面通信实现 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="devil">
+  <meta name="description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
+一、 同域下父子页面通信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇个人博客">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/第一篇博文/index.html">
+<meta property="og:title" content="iframe父子页面通信实现">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/iframe父子页面通信实现/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="devil">
-<meta property="og:updated_time" content="2017-02-23T08:39:10.921Z">
+<meta property="og:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
+一、 同域下父子页面通信">
+<meta property="og:updated_time" content="2017-02-24T01:26:54.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇个人博客">
-<meta name="twitter:description" content="devil">
+<meta name="twitter:title" content="iframe父子页面通信实现">
+<meta name="twitter:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
+一、 同域下父子页面通信">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
   
@@ -155,27 +158,34 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-第一篇博文" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-iframe父子页面通信实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇个人博客
+      iframe父子页面通信实现
     </h1>
   
 
         
-        <a href="/2017/02/23/第一篇博文/" class="archive-article-date">
-  	<time datetime="2017-02-23T07:17:27.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/02/23/iframe父子页面通信实现/" class="archive-article-date">
+  	<time datetime="2017-02-23T14:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>  近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。</p>
+<h1 id="一、-同域下父子页面通信"><a href="#一、-同域下父子页面通信" class="headerlink" title="一、 同域下父子页面通信"></a>一、 同域下父子页面通信</h1>  <a id="more"></a>
+<blockquote>
+<p>先来看具体实现      </p>
+</blockquote>
+<p>parent.html<br>        <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">        function say()&#123;</div><div class="line">            alert("parent.html");</div><div class="line">        &#125;</div><div class="line">        function callChild()&#123;</div><div class="line">            myFrame.window.say();</div><div class="line">            myFrame.window.document.getElementById("button").value="调用结束";</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"button"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"调用child.html中的函数say()"</span> <span class="attr">onclick</span>=<span class="string">"callChild()"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"myFrame"</span> <span class="attr">src</span>=<span class="string">"child.html"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>未完待续…</p>
+
       
 
       
@@ -209,11 +219,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iframe</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端小镇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">router</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
         		</li>
       		
 		</ul>
@@ -269,7 +283,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/第一篇博文/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/iframe父子页面通信实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,15 +297,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/02/23/iframe父子页面通信实现/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iframe父子页面通信实现
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/23/第一篇博文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -303,7 +313,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="第一篇博文" data-title="我的第一篇个人博客" data-url="http://yoursite.com/2017/02/23/第一篇博文/"></div>
+	<div class="ds-thread" data-thread-key="iframe父子页面通信实现" data-title="iframe父子页面通信实现" data-url="http://yoursite.com/2017/02/23/iframe父子页面通信实现/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
