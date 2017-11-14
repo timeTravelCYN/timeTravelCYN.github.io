@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>移动端踩坑实践 | n 55lW !</title>
+  <title>你不知道的 JS --- 类型 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基础的牢固对于阅读源码等有很大的帮助
 
@@ -15,7 +15,7 @@ typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;)
 
 此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)123var a = trueif(!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端踩坑实践">
+<meta property="og:title" content="你不知道的 JS --- 类型">
 <meta property="og:url" content="http://yoursite.com/2017/02/24/你不懂js_类型/index.html">
 <meta property="og:site_name" content="n 55lW !">
 <meta property="og:description" content="基础的牢固对于阅读源码等有很大的帮助
@@ -24,9 +24,9 @@ typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;)
 typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;) &amp;#123;  atob = function() &amp;#123; /*..*/ &amp;#125;;&amp;#125;
 
 此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)123var a = trueif(!">
-<meta property="og:updated_time" content="2017-06-02T06:55:43.411Z">
+<meta property="og:updated_time" content="2017-11-14T08:29:41.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="移动端踩坑实践">
+<meta name="twitter:title" content="你不知道的 JS --- 类型">
 <meta name="twitter:description" content="基础的牢固对于阅读源码等有很大的帮助
 
 
@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      移动端踩坑实践
+      你不知道的 JS --- 类型
     </h1>
   
 
@@ -302,18 +302,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/02/24/vue学习笔记-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/24/移动端踩坑实践/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vue学习笔记-1
+          移动端踩坑实践
         
       </div>
     </a>
   
   
-    <a href="/2017/02/24/移动端踩坑实践/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">移动端踩坑实践</div>
+    <a href="/2017/02/23/iframe父子页面通信实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iframe父子页面通信实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +327,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="你不懂js_类型" data-title="移动端踩坑实践" data-url="http://yoursite.com/2017/02/24/你不懂js_类型/"></div>
+	<div class="ds-thread" data-thread-key="你不懂js_类型" data-title="你不知道的 JS --- 类型" data-url="http://yoursite.com/2017/02/24/你不懂js_类型/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -429,22 +429,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iframe</a>
               </li>
              
@@ -457,6 +441,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
               </li>
              
@@ -465,15 +453,27 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
               </li>
             
             <div class="clearfix"></div>

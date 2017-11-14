@@ -176,70 +176,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="详解-JavaScript-强制类型转换"><a href="#详解-JavaScript-强制类型转换" class="headerlink" title="详解 JavaScript 强制类型转换"></a>详解 JavaScript 强制类型转换</h1><h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p><img src="https://camo.githubusercontent.com/d41d3c7116dfe416a2392bc12932ea8825b3de4b/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f6136363063616232677931666379396f6d623275636a3230763230766967706f" alt="优先级"></p>
+        <h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p><img src="https://camo.githubusercontent.com/d41d3c7116dfe416a2392bc12932ea8825b3de4b/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f6136363063616232677931666379396f6d623275636a3230763230766967706f" alt="优先级"></p>
 <p>非常重要，下面很多地方需要用到</p>
-<h2 id="为什么是-false？"><a href="#为什么是-false？" class="headerlink" title="[] == [] 为什么是 false？"></a>[] == [] 为什么是 false？</h2><p>数组是引用类型，是对地址的引用，虽然两个都为数组，但是在堆中的地址不同，所以比较结果为 false</p>
-<p><img src="https://camo.githubusercontent.com/a39ea93e62a2f6dfc3788ee80ce9bd9625ec09fc/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f6136363063616232677931666379697775697534636a3230796730697a616261" alt="内存"></p>
-<p><strong>为什么引用值要放在堆中，而原始值要放在栈中</strong></p>
-<p><em>记住一句话：能量是守衡的，无非是时间换空间，空间换时间的问题 堆比栈大，栈比堆的运算速度快,对象是一个复杂的结构，并且可以自由扩展，如：数组可以无限扩充，对象可以自由添加属性。将他们放在堆中是为了不影响栈的效率。而是通过引用的方式查找到堆中的实际对象再进行操作。相对于简单数据类型而言，简单数据类型就比较稳定，并且它只占据很小的内存。不将简单数据类型放在堆是因为通过引用到堆中查找实际对象是要花费时间的，而这个综合成本远大于直接从栈中取得实际值的成本。所以简单数据类型的值直接存放在栈中。</em></p>
-<p>详情请戳 <a href="http://blog.sina.com.cn/s/blog_8ecde0fe0102vy6e.html" target="_blank" rel="external">理解JS内存分配</a></p>
-<h2 id="为什么-false-而-true-？"><a href="#为什么-false-而-true-？" class="headerlink" title="为什么 [] == false 而 !![] == true ？"></a>为什么 [] == false 而 !![] == true ？</h2><p>我们知道，非严格比较操作符 <code>==</code> 是会做强制类型转换的，根据 ECMA 标准，规则如下:</p>
-<p><img src="https://p5.ssl.qhimg.com/t0148b4e8aacee1b427.png" alt="ecma1"></p>
-<ul>
-<li><strong>If Type(y) is Boolean, return the result of the comparison x == ToNumber(y).</strong></li>
-<li><strong>If Type(x) is Object and Type(y) is either String, Number, or Symbol, return the result of the comparison ToPrimitive(x) == y.</strong></li>
-</ul>
-<h3 id="false"><a href="#false" class="headerlink" title="[] == false"></a>[] == false</h3><p>所以 <code>[] == false</code> 的比较是对 x 执行 ToPrimitive, 然后和 ToNumber(false) 进行比较</p>
-<p><img src="https://camo.githubusercontent.com/af557ca7baf8de8e7e9895732101c52b2a9cc49b/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f613636306361623267793166637961336d6e6565376a32313667306c6f677079" alt="toNumber"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">ToPrimitive(obj,preferredType)</div><div class="line"></div><div class="line">JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个</div><div class="line"></div><div class="line">preferredType为希望转换成的类型（默认为空，接受的值为Number或String）</div><div class="line"></div><div class="line">在执行ToPrimitive(obj,preferredType)时如果第二个参数为空并且obj为Date的事例时，此时preferredType会</div><div class="line"></div><div class="line">被设置为String，其他情况下preferredType都会被设置为Number如果preferredType为Number，ToPrimitive执</div><div class="line"></div><div class="line">行过程如</div><div class="line"></div><div class="line">下：</div><div class="line"></div><div class="line">1. 如果obj为原始值，直接返回；</div><div class="line">2. 否则调用 obj.valueOf()，如果执行结果是原始值，返回之；</div><div class="line">3. 否则调用 obj.toString()，如果执行结果是原始值，返回之；</div><div class="line">4. 否则抛异常。</div><div class="line"></div><div class="line">如果preferredType为String，将上面的第2步和第3步调换，即：</div><div class="line"></div><div class="line">1. 如果obj为原始值，直接返回；</div><div class="line">2. 否则调用 obj.toString()，如果执行结果是原始值，返回之；</div><div class="line">3. 否则调用 obj.valueOf()，如果执行结果是原始值，返回之；</div><div class="line">4. 否则抛异常.</div></pre></td></tr></table></figure>
-<p>所以对于 [], 先调用 <code>[].valueOf()</code> 返回的结果是 [],不是原始值，继续执行<code>[].toString()</code> 返回 <code>&quot;&quot;</code></p>
-<p>所以最终比较的是 <code>&quot;&quot; == 0</code> 结果为 true</p>
-<h2 id="代码实现-toPrimitive-方法"><a href="#代码实现-toPrimitive-方法" class="headerlink" title="代码实现 toPrimitive 方法"></a>代码实现 toPrimitive 方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toPrimitive = <span class="function">(<span class="params">obj, preferredType=<span class="string">'Number'</span></span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">let</span> Utils = &#123;</div><div class="line">        <span class="attr">typeOf</span>: <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">isPrimitive</span>: <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">            <span class="keyword">let</span> types = [<span class="string">'Null'</span>, <span class="string">'String'</span>, <span class="string">'Boolean'</span>, <span class="string">'Undefined'</span>, <span class="string">'Number'</span>];</div><div class="line">            <span class="keyword">return</span> types.indexOf(<span class="keyword">this</span>.typeOf(obj)) !== <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">   </div><div class="line">    <span class="keyword">if</span> (Utils.isPrimitive(obj)) &#123;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    preferredType = (preferredType === <span class="string">'String'</span> || Utils.typeOf(obj) === <span class="string">'Date'</span>) ?</div><div class="line">     <span class="string">'String'</span> : <span class="string">'Number'</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (preferredType === <span class="string">'Number'</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (Utils.isPrimitive(obj.valueOf())) &#123;</div><div class="line">            <span class="keyword">return</span> obj.valueOf()</div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">if</span> (Utils.isPrimitive(obj.toString())) &#123;</div><div class="line">            <span class="keyword">return</span> obj.toString()</div><div class="line">        &#125;;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (Utils.isPrimitive(obj.toString())) &#123;</div><div class="line">            <span class="keyword">return</span> obj.toString()</div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">if</span> (Utils.isPrimitive(obj.valueOf())) &#123;</div><div class="line">            <span class="keyword">return</span> obj.valueOf()</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a=&#123;&#125;;</div><div class="line">ToPrimitive(a);<span class="comment">//"[object Object]",与上面文字分析的一致</span></div></pre></td></tr></table></figure>
-<h3 id="true"><a href="#true" class="headerlink" title="!![] == true"></a>!![] == true</h3><p>按照优先级， 会先执行 <code>!</code> </p>
-<p><img src="https://p1.ssl.qhimg.com/t0103c93877b67a31ff.png" alt="!"></p>
-<p>按照上图规范，实际上执行 <code>!!ToBoolean([])</code></p>
-<p>而 <code>ToBoolean</code> 的规则为</p>
-<p><img src="https://p2.ssl.qhimg.com/t0112867db718bf0665.png" alt="toboolean"></p>
-<p>所以 <code>ToBoolean([])</code> 为 true, <code>!![]</code>自然就为 true 了</p>
-<p>这也是为什么我们不能用 <code>if(!array)</code> 来判断空数组而要用<code>if(array.length === 0)</code> 来判断空数组的原因。</p>
-<h2 id="valueOf-amp-amp-toString"><a href="#valueOf-amp-amp-toString" class="headerlink" title="valueOf() &amp;&amp; toString()"></a>valueOf() &amp;&amp; toString()</h2><p>上面提到了 <code>valueOf()</code> 和 <code>toString()</code> 两个方法，但具体为什么是那样的结果呢，鉴于待会最后一个案例还要用到，此时我们先来熟悉一下这两个方法。</p>
-<p><code>toString()</code>可以看做是把一个数据转换成了相应字符串的形式，按下图规则转换</p>
-<p><img src="http://images.cnitblog.com/blog2015/688270/201504/041236070142565.png" alt="toString"></p>
-<p>当<code>valueOf</code>方法被调用时，会调用内置的<code>ToObject</code>，并将<code>this</code>作为参数传进去。<code>ToObject</code>检测会根据参数类型进行数值的转换：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Undefined - 抛出TypeError异常</div><div class="line">Null - 抛出TypeError异常</div><div class="line">Boolean - 创建一个Boolean对象，调用ToBoolean生成[[PrimitiveValue]]</div><div class="line">Number - 创建一个Number对象，调用ToNumber生成[[PrimitiveValue]]</div><div class="line">String - 创建一个String对象，调用ToString生成[[PrimitiveValue]]</div><div class="line">Object - 对象本身</div></pre></td></tr></table></figure>
-<h2 id="加法中的隐式类型转换"><a href="#加法中的隐式类型转换" class="headerlink" title="加法中的隐式类型转换"></a>加法中的隐式类型转换</h2><p>当计算表达式 <code>value1 + value2</code> 的时候，会按照如下规则:</p>
-<ol>
-<li><p>将两个操作数转换为原始值 (下面是数学表示法,不是JavaScript代码):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">prim1 := ToPrimitive(value1)</div><div class="line">prim2 := ToPrimitive(value2)</div></pre></td></tr></table></figure>
-<p>PreferredType 被省略,因此Date类型的值采用String,其他类型的值采用Number.</p>
-</li>
-<li><p>如果<code>prim1</code>或者<code>prim2</code>中的任意一个为字符串,则将另外一个也转换成字符串,然后返回两个字符串连接操作后的结果.</p>
-</li>
-<li><p>否则,将<code>prim1</code>和<code>prim2</code>都转换为数字类型,返回他们的和.</p>
-</li>
-</ol>
-<h2 id="练习时间"><a href="#练习时间" class="headerlink" title="练习时间"></a>练习时间</h2><p>为了方便表达，x 表示左边的值， y 表示右边的值</p>
-<ol>
-<li><p><code>[] == ![]</code>   根据运算优先级, y 最终会变为 Boolean, 由前文图中可知，最后会变为 <code>toPrimitive(x) == ToNumber(!ToBoolean(y))</code> 可知表达式为 true</p>
-</li>
-<li><p><code>[] + []</code> 调用 <code>toPrimitive</code>，结果为 <code>&quot;&quot;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; [] + &#123;&#125;</div><div class="line">&apos;[object Object]&apos;</div><div class="line">&gt; 5 + new Number(7)</div><div class="line">12</div><div class="line">&gt; 6 + &#123; valueOf: function () &#123; return 2 &#125; &#125;</div><div class="line">8</div><div class="line">&gt; &quot;abc&quot; + &#123; toString: function () &#123; return &quot;def&quot; &#125; &#125;</div><div class="line">&apos;abcdef&apos;</div><div class="line">此上都是对于加号运算的规则分析得出的结果</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>{} + {}</code> 结果为 NaN， 这是为什么呢？浏览器在解析时，会把第一个<code>{}</code>解释为一个空代码块，并忽略他，实为执行 <code>+{}</code>,这里的 + 是一元操作符，作用是将它后面的操作数转为数字,过程如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+&#123;&#125;</div><div class="line">Number(&#123;&#125;)</div><div class="line">Number(&#123;&#125;.toString())  // 因为&#123;&#125;.valueOf()不是原始值</div><div class="line">Number(&quot;[object Object]&quot;)</div><div class="line">NaN // 结果为 NaN</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>true + 1</code>，这个要着重记录一下，因为看到的时候是百思不得姐，为什么是 2 呢，后来仔细去看 <code>toPrimitive</code> 因为 true 是原始值，所以直接返回 true，所以 左右有一为 Number，执行 ToNumber(true)<br>得出结果为2</p>
-</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">我们总结一下==运算的规则：</div><div class="line"></div><div class="line">1. undefined == null，结果是true。且它俩与所有其他值比较的结果都是false。</div><div class="line"></div><div class="line">2. String == Boolean，需要两个操作数同时转为Number。</div><div class="line"></div><div class="line">3. String/Boolean == Number，需要String/Boolean转为Number。</div><div class="line"></div><div class="line">4. Object == Primitive，需要Object转为Primitive(具体通过valueOf和toString方法)。</div><div class="line"></div><div class="line">瞧见没有，一共只有4条规则！是不是很清晰、很简单。</div></pre></td></tr></table></figure>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://segmentfault.com/a/1190000002911253#articleHeader7" target="_blank" rel="external">关于原生 JS 的一些研究</a></li>
-<li><a href="http://2ality.com/2012/01/object-plus-object.html" target="_blank" rel="external">what is {} + {} in JavaScript</a></li>
-<li><a href="https://www.zhihu.com/question/21484710" target="_blank" rel="external">JavaScript中加号运算符的类型转换优先级是什么？</a></li>
-<li><a href="https://www.zhihu.com/question/45478070" target="_blank" rel="external">JS中{}+[]和[]+{}的返回值情况是怎样的？</a></li>
-<li><a href="http://www.cnblogs.com/ziyunfei/archive/2012/09/15/2685885.html" target="_blank" rel="external">[译]JavaScript中,{}+{}等于多少?</a></li>
-</ul>
-
+<h2 id="为什么是-false？"><a href="#为什么是-false？" class="headerlink" title="[] == [] 为什么是 false？"></a>[] == [] 为什么是 false？</h2><p>数组是引用类型，是对地址的引用，虽然两个都为数组，但是在堆中的地址不同，所以比较结果为 false<br>
+        
+          <a class="article-more-a" href="/2017/11/14/详解 JavaScript 类型转换/#more">more >></a>
+        
       
 
       
@@ -314,11 +256,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据双向绑定</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据双向绑定</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -428,75 +370,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-你不懂js_类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/你不懂js_类型/">移动端踩坑实践</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/24/你不懂js_类型/" class="archive-article-date">
-  	<time datetime="2017-02-24T06:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基础的牢固对于阅读源码等有很大的帮助</p>
-<hr>
-<blockquote>
-<p>typeof 的 “安全防御行为”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> atob === <span class="string">"undefined"</span>) &#123;</div><div class="line">  atob = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/*..*/</span> &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span>(!a) &#123;e= <span class="number">2</span>&#125;</div><div class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</div></pre></td></tr></table></figure></p>
-<p>打印e 会输出 ReferenceError: e is not defined<br>而如果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span>(!a) &#123;<span class="keyword">var</span> e= <span class="number">2</span>&#125;</div><div class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</div></pre></td></tr></table></figure></p>
-<p>输出的为undefined  变量被提升了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">你不懂js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/24/你不懂js_类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-移动端踩坑实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -557,6 +430,75 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/02/24/移动端踩坑实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-你不懂js_类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/24/你不懂js_类型/">你不知道的 JS --- 类型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/24/你不懂js_类型/" class="archive-article-date">
+  	<time datetime="2017-02-24T06:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基础的牢固对于阅读源码等有很大的帮助</p>
+<hr>
+<blockquote>
+<p>typeof 的 “安全防御行为”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> atob === <span class="string">"undefined"</span>) &#123;</div><div class="line">  atob = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/*..*/</span> &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span>(!a) &#123;e= <span class="number">2</span>&#125;</div><div class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>打印e 会输出 ReferenceError: e is not defined<br>而如果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span>(!a) &#123;<span class="keyword">var</span> e= <span class="number">2</span>&#125;</div><div class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>输出的为undefined  变量被提升了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">你不懂js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/24/你不懂js_类型/">展开全文 >></a>
         </p>
       
 
@@ -730,22 +672,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iframe</a>
               </li>
              
@@ -758,6 +684,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
               </li>
              
@@ -766,15 +696,27 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
               </li>
             
             <div class="clearfix"></div>
