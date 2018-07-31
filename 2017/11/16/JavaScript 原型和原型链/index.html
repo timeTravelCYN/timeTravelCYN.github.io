@@ -8,28 +8,24 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JavaScript 原型和原型链 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name);
-在这个例子中， Person 就是一个构造函数， person 是构造函数的实例
-prototype每个函数都有一个 prototype 属性">
+  <meta name="description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name); 在这个例子中， Person 就是一个构造函数， person 是构造函数的实例 prototype每个函数都有一个 prototype 属性">
+<meta name="keywords" content="JavaScript 基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 原型和原型链">
 <meta property="og:url" content="http://yoursite.com/2017/11/16/JavaScript 原型和原型链/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name);
-在这个例子中， Person 就是一个构造函数， person 是构造函数的实例
-prototype每个函数都有一个 prototype 属性">
+<meta property="og:description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name); 在这个例子中， Person 就是一个构造函数， person 是构造函数的实例 prototype每个函数都有一个 prototype 属性">
+<meta property="og:locale" content="zh">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/50577015.jpg">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/4683246.jpg">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/96705078.jpg">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/68729384.jpg">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/2897141.jpg">
 <meta property="og:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-16/95450378.jpg">
-<meta property="og:updated_time" content="2017-11-16T02:27:19.784Z">
+<meta property="og:updated_time" content="2017-11-22T09:11:10.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 原型和原型链">
-<meta name="twitter:description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name);
-在这个例子中， Person 就是一个构造函数， person 是构造函数的实例
-prototype每个函数都有一个 prototype 属性">
+<meta name="twitter:description" content="从原型到原型链构造函数创建对象123456function Person() &amp;#123;  &amp;#125;var person = new Person();person.name = &apos;chenyn&apos;;console.log(person.name); 在这个例子中， Person 就是一个构造函数， person 是构造函数的实例 prototype每个函数都有一个 prototype 属性">
 <meta name="twitter:image" content="http://ozgadrk0y.bkt.clouddn.com/17-11-15/50577015.jpg">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
@@ -188,10 +184,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="从原型到原型链"><a href="#从原型到原型链" class="headerlink" title="从原型到原型链"></a>从原型到原型链</h1><h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  </div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</div><div class="line">person.name = <span class="string">'chenyn'</span>;</div><div class="line"><span class="built_in">console</span>.log(person.name);</div></pre></td></tr></table></figure>
+        <h1 id="从原型到原型链"><a href="#从原型到原型链" class="headerlink" title="从原型到原型链"></a>从原型到原型链</h1><h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.name = <span class="string">'chenyn'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name);</span><br></pre></td></tr></table></figure>
 <p>在这个例子中， Person 就是一个构造函数， person 是构造函数的实例</p>
 <h2 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h2><p>每个函数都有一个 prototype 属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">// 虽然写在注释里，但是你要注意：</span></div><div class="line"><span class="comment">// prototype是函数才会有的属性</span></div><div class="line">Person.prototype.name = <span class="string">'chenyn'</span>;</div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.log(person1.name) <span class="comment">// chenyn</span></div><div class="line"><span class="built_in">console</span>.log(person2.name) <span class="comment">// chenyn</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 虽然写在注释里，但是你要注意：</span></span><br><span class="line"><span class="comment">// prototype是函数才会有的属性</span></span><br><span class="line">Person.prototype.name = <span class="string">'chenyn'</span>;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person1.name) <span class="comment">// chenyn</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.name) <span class="comment">// chenyn</span></span><br></pre></td></tr></table></figure>
 <p>函数的 prototype 属性指向了一个对象， 这个对象是调用该构造函数而创建的<strong>实例</strong>的原型，是例子中 person1、person2的原型</p>
 <p>原型可以这样理解： 每一个 JavaScript 对象 （null 除外） 在创建的时候就会与另一个对象产生关联，这就是原型，每一个对象都会从原型’继承’属性</p>
 <p><img src="http://ozgadrk0y.bkt.clouddn.com/17-11-15/50577015.jpg" alt=""><br><a id="more"></a></p>
@@ -199,21 +195,21 @@ var _hmt = _hmt || [];
 <p><code>person.__proto__ = Person.prototype</code>, 这个属性也被称为隐式原型</p>
 <p><img src="http://ozgadrk0y.bkt.clouddn.com/17-11-15/4683246.jpg" alt=""></p>
 <h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><p>每个原型都有一个 constructor 属性指向关联的构造函数，为什么没有指向实例的属性呢，因为实例可以有千千万万个。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://ozgadrk0y.bkt.clouddn.com/17-11-15/96705078.jpg" alt=""></p>
 <p style="text-align: center">关系图更新如上</p>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></div><div class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <h2 id="实例与原型"><a href="#实例与原型" class="headerlink" title="实例与原型"></a>实例与原型</h2><p>当读取实例属性时，会先从实例开始查找，如果查找不到，会向上往实例的原型中的属性找到，还没有，就去原型的原型中去找，一直到最顶层为止</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  </div><div class="line">&#125;</div><div class="line">Person.prototype.name = <span class="string">'chenyn'</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line">person.name = <span class="string">'beibei'</span></div><div class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// beibei</span></div><div class="line"></div><div class="line"><span class="keyword">delete</span> person.name</div><div class="line"><span class="built_in">console</span>.log(person.name)  <span class="comment">// chenyn</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="string">'chenyn'</span></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line">person.name = <span class="string">'beibei'</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// beibei</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.name</span><br><span class="line"><span class="built_in">console</span>.log(person.name)  <span class="comment">// chenyn</span></span><br></pre></td></tr></table></figure>
 <h2 id="原型的原型"><a href="#原型的原型" class="headerlink" title="原型的原型"></a>原型的原型</h2><p>原型也是一个对象，那么它就可以通过最原始的方法被创建</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">obj.name = <span class="string">'chen'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">'chen'</span></span><br></pre></td></tr></table></figure>
 <p>所以原型对象是通过 Object 构造函数生成的，实例的 <strong>proto</strong> 属性指向构造函数的 prototype属性，更新关系图</p>
 <p><img src="http://ozgadrk0y.bkt.clouddn.com/17-11-15/68729384.jpg" alt=""></p>
 <h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>那么 Object.prototype 的原型呢？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>null究竟代表了什么呢？</p>
-<p>引用阮一峰老师的 <a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="external">《undefined与null的区别》</a> 就是：</p>
+<p>引用阮一峰老师的 <a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="noopener">《undefined与null的区别》</a> 就是：</p>
 <blockquote>
 <p>null 表示“没有对象”，即该处不应该有值。</p>
 </blockquote>
@@ -223,7 +219,7 @@ var _hmt = _hmt || [];
 <p>蓝色的这条线，其实就是大家老生常谈的原型链</p>
 <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><h3 id="真的是继承吗？"><a href="#真的是继承吗？" class="headerlink" title="真的是继承吗？"></a>真的是继承吗？</h3><p>最后是关于继承，前面我们讲到“每一个对象都会从原型‘继承’属性”，实际上，继承是一个十分具有迷惑性的说法，引用《你不知道的JavaScript》中的话，就是：</p>
 <p>继承意味着复制操作，然而 JavaScript 默认并不会复制对象的属性，相反，JavaScript 只是在两个对象之间创建一个关联，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，委托的说法反而更准确些。</p>
-<h3 id="构造函数的-prototype-设置为-null-会怎样？"><a href="#构造函数的-prototype-设置为-null-会怎样？" class="headerlink" title="构造函数的 prototype 设置为 null 会怎样？"></a>构造函数的 prototype 设置为 null 会怎样？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  </div><div class="line">&#125;</div><div class="line">Person.prototype = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</div><div class="line">person.__proto__ === Person.prototype <span class="comment">// false</span></div><div class="line">person.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<h3 id="构造函数的-prototype-设置为-null-会怎样？"><a href="#构造函数的-prototype-设置为-null-会怎样？" class="headerlink" title="构造函数的 prototype 设置为 null 会怎样？"></a>构造函数的 prototype 设置为 null 会怎样？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</span><br><span class="line">person.__proto__ === Person.prototype <span class="comment">// false</span></span><br><span class="line">person.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>首先new的时候 产生ECMA原生对象，接着此对象的[[Prototype]] 属性是根据 函数PERSTON的prototype来设定的，如果此时prototype是一个对象，[[Prototype]] =那个设定的对象,如果不是一个对象，设定 obj 的 [[Prototype]] 内部属性为 Object 的 prototype 对象</p>
 </blockquote>
@@ -236,9 +232,9 @@ var _hmt = _hmt || [];
 <li>Function.[[proto]] === Function.prototype 这件事，以后需要专门再一篇总结慢慢道来</li>
 </ul>
 <h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><ul>
-<li><a href="https://www.zhihu.com/question/34183746" target="_blank" rel="external">proto 与 prototye的关系</a></li>
-<li><a href="https://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="external">深入理解 Javascript 原型和闭包</a></li>
-<li><a href="https://github.com/mqyqingfeng/Blog/issues/2" target="_blank" rel="external">JavaScript 深入之从原型到原型链</a></li>
+<li><a href="https://www.zhihu.com/question/34183746" target="_blank" rel="noopener">proto 与 prototye的关系</a></li>
+<li><a href="https://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="noopener">深入理解 Javascript 原型和闭包</a></li>
+<li><a href="https://github.com/mqyqingfeng/Blog/issues/2" target="_blank" rel="noopener">JavaScript 深入之从原型到原型链</a></li>
 </ul>
 
       
@@ -389,7 +385,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 n 55lW !
+    		&copy; 2018 n 55lW !
     	</div>
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -462,15 +458,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,6 +474,26 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
               </li>
              
@@ -495,18 +503,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
             
             <div class="clearfix"></div>

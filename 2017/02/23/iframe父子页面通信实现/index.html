@@ -8,19 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>iframe父子页面通信实现 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
-一、 同域下父子页面通信">
+  <meta name="description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。 一、 同域下父子页面通信">
+<meta name="keywords" content="iframe,router,跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iframe父子页面通信实现">
 <meta property="og:url" content="http://yoursite.com/2017/02/23/iframe父子页面通信实现/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
-一、 同域下父子页面通信">
-<meta property="og:updated_time" content="2017-02-24T01:26:54.027Z">
+<meta property="og:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。 一、 同域下父子页面通信">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-02-24T01:26:54.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iframe父子页面通信实现">
-<meta name="twitter:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。
-一、 同域下父子页面通信">
+<meta name="twitter:description" content="近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。 一、 同域下父子页面通信">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
   
@@ -183,7 +182,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>先来看具体实现      </p>
 </blockquote>
-<p>parent.html<br>        <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(<span class="string">"parent.html"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">callChild</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            myFrame.window.say();</div><div class="line">            myFrame.window.document.getElementById(<span class="string">"button"</span>).value=<span class="string">"调用结束"</span>;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"button"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"调用child.html中的函数say()"</span> <span class="attr">onclick</span>=<span class="string">"callChild()"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"myFrame"</span> <span class="attr">src</span>=<span class="string">"child.html"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>parent.html<br>        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"parent.html"</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">callChild</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">            myFrame.window.say();</span></span><br><span class="line"><span class="javascript">            myFrame.window.document.getElementById(<span class="string">"button"</span>).value=<span class="string">"调用结束"</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"button"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"调用child.html中的函数say()"</span> <span class="attr">onclick</span>=<span class="string">"callChild()"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"myFrame"</span> <span class="attr">src</span>=<span class="string">"child.html"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>未完待续…</p>
 
       
@@ -346,7 +345,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 n 55lW !
+    		&copy; 2018 n 55lW !
     	</div>
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -419,15 +418,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,6 +434,26 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
               </li>
              
@@ -452,18 +463,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
             
             <div class="clearfix"></div>

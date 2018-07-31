@@ -8,31 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>移动端踩坑实践 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！
-
-
-ios端关于date() 兼容性问题
-
-项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
+  <meta name="description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！   ios端关于date() 兼容性问题  项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
+<meta name="keywords" content="前端小镇,移动端,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端踩坑实践">
 <meta property="og:url" content="http://yoursite.com/2017/02/24/移动端踩坑实践/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！
-
-
-ios端关于date() 兼容性问题
-
-项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
-<meta property="og:updated_time" content="2017-02-24T12:40:19.028Z">
+<meta property="og:description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！   ios端关于date() 兼容性问题  项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-02-24T12:40:19.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端踩坑实践">
-<meta name="twitter:description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！
-
-
-ios端关于date() 兼容性问题
-
-项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
+<meta name="twitter:description" content="去年十一月份接手了一个项目,移动端webapp,已经经历了长达四个月的开发,迭代,维护。特此记录下实践过程中的坑,方便以后查阅。如有不对，请指正，谢谢！   ios端关于date() 兼容性问题  项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:    1var dTime = (new Da">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
   
@@ -195,15 +182,15 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>ios端关于date() 兼容性问题</p>
 </blockquote>
-<p>项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dTime = (<span class="keyword">new</span> <span class="built_in">Date</span>(time)).getTime();</div></pre></td></tr></table></figure></p>
+<p>项目中有一关于返回的时间与某一时间戳对比的问题,时间戳返回的为数字,而时间返回的是 ‘2017-02-24 14:58:32’形式用,最开始使用的方法为:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dTime = (<span class="keyword">new</span> <span class="built_in">Date</span>(time)).getTime();</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>但实际过程中发现ios端对此返回的是NaN.解决方案为:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dTime = dTime.replace(<span class="regexp">/\-/g</span>, <span class="string">"/"</span>);</div></pre></td></tr></table></figure></p>
-<p>Android,Ios共用的是此种形式:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date =<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2016/05/31 08:00"</span>);</div></pre></td></tr></table></figure></p>
+<p>但实际过程中发现ios端对此返回的是NaN.解决方案为:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dTime = dTime.replace(<span class="regexp">/\-/g</span>, <span class="string">"/"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>Android,Ios共用的是此种形式:<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date =<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2016/05/31 08:00"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>所以使用正则调整为两者皆可的形式即可。</p>
 <blockquote>
 <p>Html5日历控件赋值问题</p>
 </blockquote>
-<p>HTML5中新增了日历控件，如果将控件的type=“datetime-local”，如果是Chrome，控件的日期显示格式是2016/05/30 08:00 ，如果是Safari，日期的显示格式是：2016-05-31T08:00，当我们用jQuery取值赋值的时候，就必须用这种方式才能赋值：<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dTime = <span class="string">'2016-05-30T08:30'</span></div><div class="line">$(<span class="string">"#timeDate"</span>).val(dTime)</div></pre></td></tr></table></figure></p>
+<p>HTML5中新增了日历控件，如果将控件的type=“datetime-local”，如果是Chrome，控件的日期显示格式是2016/05/30 08:00 ，如果是Safari，日期的显示格式是：2016-05-31T08:00，当我们用jQuery取值赋值的时候，就必须用这种方式才能赋值：<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dTime = <span class="string">'2016-05-30T08:30'</span></span><br><span class="line">$(<span class="string">"#timeDate"</span>).val(dTime)</span><br></pre></td></tr></table></figure></p>
 <p>抽空继续总结，未完待续…</p>
 
       
@@ -371,7 +358,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 n 55lW !
+    		&copy; 2018 n 55lW !
     	</div>
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -444,15 +431,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,6 +447,26 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
               </li>
              
@@ -477,18 +476,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue.js原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript 基础</a>
               </li>
             
             <div class="clearfix"></div>
