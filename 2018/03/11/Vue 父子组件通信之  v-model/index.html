@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: router | n 55lW !</title>
+  <title>Vue 父子组件通信之 v-model | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="devil">
-<meta property="og:type" content="website">
-<meta property="og:title" content="n 55lW !">
-<meta property="og:url" content="http://yoursite.com/tags/router/index.html">
+  <meta name="description" content="北京最近的天，可真是热啊  Vue 组件间通信Vue 组件间通信是个老生常谈的问题，在开发中几乎必定会遇到。下面我们先来谈一下基本的通信方法 父传子 props $children子传父 父组件传递函数给子组件，子组件通过 $emit 触发 修改父组件的 props 通过 $parent 访问父组件兄弟组件 EventBus  当然了，你也可以用 vuex 解决一切  今天就来谈一种平时不经常用">
+<meta name="keywords" content="vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 父子组件通信之 v-model">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/Vue 父子组件通信之  v-model/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="devil">
+<meta property="og:description" content="北京最近的天，可真是热啊  Vue 组件间通信Vue 组件间通信是个老生常谈的问题，在开发中几乎必定会遇到。下面我们先来谈一下基本的通信方法 父传子 props $children子传父 父组件传递函数给子组件，子组件通过 $emit 触发 修改父组件的 props 通过 $parent 访问父组件兄弟组件 EventBus  当然了，你也可以用 vuex 解决一切  今天就来谈一种平时不经常用">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-08-02T07:36:02.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="n 55lW !">
-<meta name="twitter:description" content="devil">
+<meta name="twitter:title" content="Vue 父子组件通信之 v-model">
+<meta name="twitter:description" content="北京最近的天，可真是热啊  Vue 组件间通信Vue 组件间通信是个老生常谈的问题，在开发中几乎必定会遇到。下面我们先来谈一下基本的通信方法 父传子 props $children子传父 父组件传递函数给子组件，子组件通过 $emit 触发 修改父组件的 props 通过 $parent 访问父组件兄弟组件 EventBus  当然了，你也可以用 vuex 解决一切  今天就来谈一种平时不经常用">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
   
@@ -155,68 +157,200 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Vue 父子组件通信之  v-model" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/23/iframe父子页面通信实现/" class="archive-article-date">
-  	<time datetime="2017-02-23T14:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/iframe父子页面通信实现/">iframe父子页面通信实现</a>
+    <h1 class="article-title" itemprop="name">
+      Vue 父子组件通信之 v-model
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/11/Vue 父子组件通信之  v-model/" class="archive-article-date">
+  	<time datetime="2018-03-11T06:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>北京最近的天，可真是热啊</p>
+</blockquote>
+<h1 id="Vue-组件间通信"><a href="#Vue-组件间通信" class="headerlink" title="Vue 组件间通信"></a>Vue 组件间通信</h1><p><code>Vue</code> 组件间通信是个老生常谈的问题，在开发中几乎必定会遇到。下面我们先来谈一下基本的通信方法</p>
+<h2 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h2><ul>
+<li><code>props</code></li>
+<li><code>$children</code><h2 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h2></li>
+<li>父组件传递函数给子组件，子组件通过 <code>$emit</code> 触发</li>
+<li>修改父组件的 <code>props</code></li>
+<li>通过 <code>$parent</code> 访问父组件<h2 id="兄弟组件"><a href="#兄弟组件" class="headerlink" title="兄弟组件"></a>兄弟组件</h2></li>
+<li><code>EventBus</code></li>
+</ul>
+<p><strong>当然了，你也可以用 <code>vuex</code> 解决一切</strong></p>
+<hr>
+<p>今天就来谈一种平时不经常用的通信方式， <code>v-model</code></p>
+<h1 id="通过-v-model-进行父子组件通信"><a href="#通过-v-model-进行父子组件通信" class="headerlink" title="通过 v-model 进行父子组件通信"></a>通过 <code>v-model</code> 进行父子组件通信</h1><a id="more"></a>
+<h2 id="我们先用传统的方式来实现组件通信"><a href="#我们先用传统的方式来实现组件通信" class="headerlink" title="我们先用传统的方式来实现组件通信"></a>我们先用传统的方式来实现组件通信</h2><p>父组件:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;child :index=<span class="string">"index"</span> @decrease=<span class="string">"decrease"</span>&gt;&lt;/child&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"increase"</span>&gt;增加&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  import Child from './</span>child<span class="string">'</span></span><br><span class="line"><span class="string">  export default &#123;</span></span><br><span class="line"><span class="string">    name: '</span>parent<span class="string">',</span></span><br><span class="line"><span class="string">    components: &#123;</span></span><br><span class="line"><span class="string">      Child</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    data() &#123;</span></span><br><span class="line"><span class="string">      return &#123;</span></span><br><span class="line"><span class="string">        index: 0</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    methods: &#123;</span></span><br><span class="line"><span class="string">      increase () &#123;</span></span><br><span class="line"><span class="string">        this.index++</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      decrease () &#123;</span></span><br><span class="line"><span class="string">        this.index--</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>子组件:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"child"</span>&gt;</span><br><span class="line">    &lt;div&gt;&#123;&#123; index &#125;&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="decrease"&gt;减少&lt;/</span>button&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'child'</span>,</span><br><span class="line">    props: &#123;</span><br><span class="line">      index: <span class="built_in">Number</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      decrease: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$emit(<span class="string">'decrease'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这是平时用到比较多的一种方式。</p>
+<h2 id="v-model-父子通信"><a href="#v-model-父子通信" class="headerlink" title="v-model 父子通信"></a><code>v-model</code> 父子通信</h2><p>那么，如果用 <code>v-model</code> 是什么样的呢？</p>
+<p>先来看代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;child v-model=<span class="string">"index"</span>&gt;&lt;/child&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"increase"</span>&gt;增加&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  import Child from './</span>child<span class="string">'</span></span><br><span class="line"><span class="string">  export default &#123;</span></span><br><span class="line"><span class="string">    components: &#123;</span></span><br><span class="line"><span class="string">      Child</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    data() &#123;</span></span><br><span class="line"><span class="string">      return &#123;</span></span><br><span class="line"><span class="string">        index: 0</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    methods: &#123;</span></span><br><span class="line"><span class="string">      increase () &#123;</span></span><br><span class="line"><span class="string">        this.index++</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"child"</span>&gt;</span><br><span class="line">    &lt;div&gt;&#123;&#123; value &#125;&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button @click="decrease"&gt;减少&lt;/</span>button&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">      value: <span class="built_in">Number</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      decrease: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$emit(<span class="string">'input'</span>, <span class="keyword">this</span>.value - <span class="number">1</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>是不是比之前的实现方式简便了许多呢？</p>
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><p><code>&lt;child v-model=&quot;index&quot;&gt;&lt;/child&gt;</code> 实际上是 <code>&lt;input v-on:input=&quot;index = arguments[0]&quot; :value=&quot;index&quot;&gt;</code> 这样是不是就好理解了？</p>
+<p><code>v-model</code> 实际上是个语法糖<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"searchText"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:value</span>=<span class="string">"searchText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:input</span>=<span class="string">"searchText = $event.target.value"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>当作用在组件上时</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">custon-input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:value</span>=<span class="string">"something"</span> <span class="attr">v-on:input</span>=<span class="string">"something=arguments[0]"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">custom-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>所以要让组件的 <code>v-model</code> 生效，它应该：</p>
+<ol>
+<li>接受一个 <code>value</code> 属性</li>
+<li>在 <code>value</code> 变化时触发 <code>input</code> 事件</li>
+</ol>
+<p><strong>父子通信，还有一种 <code>.sync</code> 的方法， 跟 <code>v-model</code> 差不多，官方更推荐用 <code>.sync</code> 多一些</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iframe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">router</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/11/Vue 父子组件通信之  v-model/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/11/16/JavaScript 原型和原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 原型和原型链</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Vue 父子组件通信之  v-model" data-title="Vue 父子组件通信之 v-model" data-url="http://yoursite.com/2018/03/11/Vue 父子组件通信之  v-model/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"timetravelcyn"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -241,9 +375,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -303,18 +437,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">iframe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
               </li>
              
@@ -327,23 +449,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>

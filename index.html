@@ -157,6 +157,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue 父子组件通信之  v-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/11/Vue 父子组件通信之  v-model/">Vue 父子组件通信之 v-model</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/11/Vue 父子组件通信之  v-model/" class="archive-article-date">
+  	<time datetime="2018-03-11T06:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>北京最近的天，可真是热啊</p>
+</blockquote>
+<h1 id="Vue-组件间通信"><a href="#Vue-组件间通信" class="headerlink" title="Vue 组件间通信"></a>Vue 组件间通信</h1><p><code>Vue</code> 组件间通信是个老生常谈的问题，在开发中几乎必定会遇到。下面我们先来谈一下基本的通信方法</p>
+<h2 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h2><ul>
+<li><code>props</code></li>
+<li><code>$children</code><h2 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h2></li>
+<li>父组件传递函数给子组件，子组件通过 <code>$emit</code> 触发</li>
+<li>修改父组件的 <code>props</code></li>
+<li>通过 <code>$parent</code> 访问父组件<h2 id="兄弟组件"><a href="#兄弟组件" class="headerlink" title="兄弟组件"></a>兄弟组件</h2></li>
+<li><code>EventBus</code></li>
+</ul>
+<p><strong>当然了，你也可以用 <code>vuex</code> 解决一切</strong></p>
+<hr>
+<p>今天就来谈一种平时不经常用的通信方式， <code>v-model</code></p>
+<h1 id="通过-v-model-进行父子组件通信"><a href="#通过-v-model-进行父子组件通信" class="headerlink" title="通过 v-model 进行父子组件通信"></a>通过 <code>v-model</code> 进行父子组件通信</h1>
+        
+          <a class="article-more-a" href="/2018/03/11/Vue 父子组件通信之  v-model/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/11/Vue 父子组件通信之  v-model/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript 原型和原型链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -432,84 +511,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-vue学习笔记-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/vue学习笔记-1/">vue学习笔记-1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/24/vue学习笔记-1/" class="archive-article-date">
-  	<time datetime="2017-02-24T13:58:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>今晚那该死的贝贝居然弃我而去，上了别人的床。俗话说的好，爱上一个不回家的人，有啥不一样！苦逼的程序猿只能继续敲代码了。</p>
-</blockquote>
-<p>vue和react同时学习进行了一段时间后，还是准备先系统的学习一下vue，原因很简单，<a href="http://cn.vuejs.org/" target="_blank" rel="noopener">vue</a>的官方文档友好太多,而且网上有太多的demo可以练习。</p>
-<h1 id="一、-VUE简介"><a href="#一、-VUE简介" class="headerlink" title="一、 VUE简介"></a>一、 VUE简介</h1><blockquote>
-<p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/02/24/vue学习笔记-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端小镇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/24/vue学习笔记-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-移动端踩坑实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -551,15 +552,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端小镇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -570,79 +563,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/02/24/移动端踩坑实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-iframe父子页面通信实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/iframe父子页面通信实现/">iframe父子页面通信实现</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/23/iframe父子页面通信实现/" class="archive-article-date">
-  	<time datetime="2017-02-23T14:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  近来有一需求，即在PC端erp内嵌移动官网，通过iframe来实现嵌套的，但是又需要实现在父页面添加prev，next按钮，最后通过设置页面简单路由的方式来解决了。借此，系统学了下iframe父子页面通信。</p>
-<h1 id="一、-同域下父子页面通信"><a href="#一、-同域下父子页面通信" class="headerlink" title="一、 同域下父子页面通信"></a>一、 同域下父子页面通信</h1>
-        
-          <a class="article-more-a" href="/2017/02/23/iframe父子页面通信实现/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iframe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">router</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/23/iframe父子页面通信实现/">展开全文 >></a>
         </p>
       
 
@@ -747,18 +667,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">iframe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">数据双向绑定</a>
               </li>
              
@@ -771,23 +679,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端小镇</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">你不懂js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>
