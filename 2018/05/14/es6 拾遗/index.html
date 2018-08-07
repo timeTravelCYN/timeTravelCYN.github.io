@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>你不知道的 JS --- 类型 | n 55lW !</title>
+  <title>es6 拾遗 | n 55lW !</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础的牢固对于阅读源码等有很大的帮助   typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;) &amp;#123;  atob = function() &amp;#123; /*..*/ &amp;#125;;&amp;#125;  此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)123var a = trueif(!">
-<meta name="keywords" content="你不懂js">
+  <meta name="description" content="es6 的出现对产出高质量的代码提供了莫大的帮助，自己用 es6 也已经有一年多的时间了，最近重新再看一遍阮老师的 es6 入门， 总觉一些个人认为比较值得书写笔记的知识点。 let 和 const暂时性死区 TDZES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。 总之，在代码块内，使用let">
+<meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你不知道的 JS --- 类型">
-<meta property="og:url" content="http://yoursite.com/2017/10/24/你不懂js_类型/index.html">
+<meta property="og:title" content="es6 拾遗">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/es6 拾遗/index.html">
 <meta property="og:site_name" content="n 55lW !">
-<meta property="og:description" content="基础的牢固对于阅读源码等有很大的帮助   typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;) &amp;#123;  atob = function() &amp;#123; /*..*/ &amp;#125;;&amp;#125;  此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)123var a = trueif(!">
+<meta property="og:description" content="es6 的出现对产出高质量的代码提供了莫大的帮助，自己用 es6 也已经有一年多的时间了，最近重新再看一遍阮老师的 es6 入门， 总觉一些个人认为比较值得书写笔记的知识点。 let 和 const暂时性死区 TDZES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。 总之，在代码块内，使用let">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2017-11-16T02:24:15.612Z">
+<meta property="og:updated_time" content="2018-08-07T09:04:07.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你不知道的 JS --- 类型">
-<meta name="twitter:description" content="基础的牢固对于阅读源码等有很大的帮助   typeof 的 “安全防御行为”123if (typeof atob === &quot;undefined&quot;) &amp;#123;  atob = function() &amp;#123; /*..*/ &amp;#125;;&amp;#125;  此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)123var a = trueif(!">
+<meta name="twitter:title" content="es6 拾遗">
+<meta name="twitter:description" content="es6 的出现对产出高质量的代码提供了莫大的帮助，自己用 es6 也已经有一年多的时间了，最近重新再看一遍阮老师的 es6 入门， 总觉一些个人认为比较值得书写笔记的知识点。 let 和 const暂时性死区 TDZES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。 总之，在代码块内，使用let">
   
     <link rel="alternative" href="/atom.xml" title="n 55lW !" type="application/atom+xml">
   
@@ -157,35 +157,50 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-你不懂js_类型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-es6 拾遗" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      你不知道的 JS --- 类型
+      es6 拾遗
     </h1>
   
 
         
-        <a href="/2017/10/24/你不懂js_类型/" class="archive-article-date">
-  	<time datetime="2017-10-24T06:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
+        <a href="/2018/05/14/es6 拾遗/" class="archive-article-date">
+  	<time datetime="2018-05-14T05:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基础的牢固对于阅读源码等有很大的帮助</p>
-<hr>
-<blockquote>
-<p>typeof 的 “安全防御行为”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> atob === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">  atob = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">/*..*/</span> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>此处如果在if语句中用var变量声明atob，则会造成变量提升，即使没有走if语句。(参见作用域与闭包)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span>(!a) &#123;e= <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印e 会输出 ReferenceError: e is not defined<br>而如果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span>(!a) &#123;<span class="keyword">var</span> e= <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;c = <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输出的为undefined  变量被提升了</p>
-
+        <p><code>es6</code> 的出现对产出高质量的代码提供了莫大的帮助，自己用 <code>es6</code> 也已经有一年多的时间了，最近重新再看一遍阮老师的 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">es6 入门</a>， 总觉一些个人认为比较值得书写笔记的知识点。</p>
+<h1 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a>let 和 const</h1><h2 id="暂时性死区-TDZ"><a href="#暂时性死区-TDZ" class="headerlink" title="暂时性死区 TDZ"></a>暂时性死区 TDZ</h2><p>ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+<p>总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="comment">// TDZ开始</span></span><br><span class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">  tmp = <span class="number">123</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，在let命令声明变量tmp之前，都属于变量tmp的“死区”。</p>
+<p>“暂时性死区”也意味着typeof不再是一个百分之百安全的操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">typeof</span> undeclared_variable <span class="comment">// "undefined"</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
+<p>在没有let之前，typeof运算符是百分之百安全的，永远不会报错。现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+<p>总之，暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
+<a id="more"></a>
+<h2 id="块级作用域-与-函数声明"><a href="#块级作用域-与-函数声明" class="headerlink" title="块级作用域 与 函数声明"></a>块级作用域 与 函数声明</h2><p>ES5 规定， 函数只能在顶层作用于和函数作用域之中声明，不能再块级作用域声明。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况一</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 情况二</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面两种函数声明，根据 ES5 的规定都是非法的。</p>
+<p>但是，浏览器没有遵守这个规定，为了兼容以前的旧代码，还是支持在块级作用域之中声明函数，因此上面两种情况实际都能运行，不会报错。</p>
+<p>ES6 引入了块级作用域，明确允许在块级作用域之中声明函数。ES6 规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用。</p>
+<p>但是，如果改变了块级作用域内声明的函数的处理规则，显然会对老代码产生很大影响。为了减轻因此产生的不兼容问题，ES6 在附录 B里面规定，浏览器的实现可以不遵守上面的规定，有自己的行为方式。</p>
+<ul>
+<li>允许在块级作用域内声明函数。</li>
+<li>函数声明类似于var，即会提升到全局作用域或函数作用域的头部。</li>
+<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
+</ul>
+<p><strong><code>let</code> <code>const</code> 声明的变量不属于顶层对象</strong></p>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><p>只要某种数据结构具有 <code>Iterator</code> 接口，都可以采用数组形式的解构赋值</p>
+<p>解构赋值允许指定默认值， ES6 内部使用严格相等运算符(<code>===</code>)，判断一个位置是否优质。所以，只有当一个数组成员严格等于 <code>undefined</code>,才能生效<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">undefined</span>];</span><br><span class="line">x <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">null</span>];</span><br><span class="line">x <span class="comment">// null</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">foo</span>: baz &#125; = &#123; <span class="attr">foo</span>: <span class="string">'aaa'</span>, <span class="attr">bar</span>: <span class="string">'bbb'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">foo</span>: foo, <span class="attr">bar</span>: bar &#125; = &#123; <span class="attr">foo</span>: <span class="string">"aaa"</span>, <span class="attr">bar</span>: <span class="string">"bbb"</span> &#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -219,7 +234,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">你不懂js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
         		</li>
       		
 		</ul>
@@ -275,7 +290,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/24/你不懂js_类型/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/05/14/es6 拾遗/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +304,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/14/详解 JavaScript 类型转换/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          详解 JavaScript 强制类型转换
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/27/Object-defineProperty/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Object.defineProperty</div>
+    <a href="/2018/03/11/Vue 父子组件通信之  v-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue 父子组件通信之 v-model</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -314,7 +320,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="你不懂js_类型" data-title="你不知道的 JS --- 类型" data-url="http://yoursite.com/2017/10/24/你不懂js_类型/"></div>
+	<div class="ds-thread" data-thread-key="es6 拾遗" data-title="es6 拾遗" data-url="http://yoursite.com/2018/05/14/es6 拾遗/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
